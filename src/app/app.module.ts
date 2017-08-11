@@ -1,8 +1,10 @@
-import {NgModule} from '@angular/core';
+﻿import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {AppRouteModule} from './app.route';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MaterialModules } from './material.module';
 
 import {AppComponent} from './app.component';
 import {FooterComponent} from './common/footer/footer.component';
@@ -19,7 +21,8 @@ import {ContactComponent} from './components/contact/contact.component';
     BrowserModule,
     FormsModule,
     AppRouteModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModules
   ],
   declarations:[
     AppComponent,
