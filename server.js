@@ -29,8 +29,8 @@ require('./server/auth/authRoutes')(app, passport);
 
 // const GoogleStrategy = require('passport-google-oauth20').Strategy;
 // passport.use(new GoogleStrategy({
-//     clientID: '80023736792-s4d6r6oijv22p3cjce3o6gj0u949j5fn.apps.googleusercontent.com',
-//     clientSecret: '1H3Aa4zFl5zvl73buEZYwzX2',
+//     clientID: 'clientID',
+//     clientSecret: 'clientSecret',
 //     callbackURL: "http://localhost:3000/auth/google/callback"
 //   },
 //   function (accessToken, refreshToken, profile, cb) {
