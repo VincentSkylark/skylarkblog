@@ -1,20 +1,32 @@
 #navbar {
-  img, #header-image {
-    position: static;
-    width: 100%;
-    max-height: 200px;
+  #header {
+    min-height:200px;
+    text-align:center;
+    background-image: url("../../../assets/img/header.jpg" );
+    background-size:cover;
+    background-position: center center;
+    overflow:hidden;
+  }
+
+  #logo{
+    height:200px;
+  }
+
+  #nav-menu{
+    height:70px;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.05);
   }
 
   ul, #nav-list {
+    height: 100%;
     list-style: none;
-    text-align: right;
-    border-bottom: solid;
-
+    color: #666;
+    line-height: 24px;
     .nav-item {
       font-size: 20px;
       display: inline-block;
       margin: 0 10px;
-
+      padding: 23px 0;
       a {
         padding: 0;
         text-decoration: none;
