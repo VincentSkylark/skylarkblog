@@ -2,13 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\server",
-    "\\server\\routes\\controller",
     "\\src",
     "\\src\\app",
     "\\src\\app\\common",
-    "\\src\\app\\common\\navbar",
-    "\\src\\assets\\img"
+    "\\src\\app\\common\\navbar"
   ],
-  "SelectedNode": "\\src\\app\\common\\navbar\\navbar.html",
+  "SelectedNode": "\\server.js",
   "PreviewInSolutionExplorer": false
 }
