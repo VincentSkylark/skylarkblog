@@ -1,12 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\server",
+    "\\server\\auth",
+    "\\server\\rss",
     "\\src",
     "\\src\\app",
     "\\src\\app\\common",
-    "\\src\\app\\common\\navbar"
+    "\\src\\app\\common\\navbar",
+    "\\src\\app\\components",
+    "\\src\\assets",
+    "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\server.js",
+  "SelectedNode": "\\src\\assets\\img\\logo.png",
   "PreviewInSolutionExplorer": false
 }

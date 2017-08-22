@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Created by vhe on 7/24/2017.
  */
 //Get dependencies
@@ -26,19 +26,6 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 require('./server/auth/auth')(passport);
 require('./server/auth/authRoutes')(app, passport);
-
-// const GoogleStrategy = require('passport-google-oauth20').Strategy;
-// passport.use(new GoogleStrategy({
-//     clientID: 'clientID',
-//     clientSecret: 'clientSecret',
-//     callbackURL: "http://localhost:3000/auth/google/callback"
-//   },
-//   function (accessToken, refreshToken, profile, cb) {
-//     console.log(profile);
-//     console.log(accessToken);
-//     return cb(null, profile);
-//   }
-// ));
 
 
 const rssModule = require('./server/rss/rssSub');

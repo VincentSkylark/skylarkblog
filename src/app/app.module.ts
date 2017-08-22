@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppRouteModule } from './app.route';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModules } from './material.module';
 
 import { BlogModule } from './components/blog/blog.module';
@@ -26,6 +27,7 @@ import { ContactComponent } from './components/contact/contact.component';
         HttpModule,
         AppRouteModule,
         BrowserAnimationsModule,
+        FlexLayoutModule,
         MaterialModules,
         BlogModule
     ],
