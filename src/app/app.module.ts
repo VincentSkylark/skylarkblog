@@ -16,6 +16,7 @@ import { NavbarComponent } from './common/navbar/navbar.component';
 
 import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { PostComponent } from './components/blog/post/post.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
 
@@ -36,6 +37,7 @@ import { ContactComponent } from './components/contact/contact.component';
         FooterComponent,
         NavbarComponent,
         HomeComponent,
+        PostComponent,
         PortfolioComponent,
         ContactComponent
     ],

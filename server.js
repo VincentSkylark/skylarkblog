@@ -16,6 +16,18 @@ const flash = require('connect-flash');
 app.use(cookieParser());
 app.use(bodyParser());
 
+//CORS for test purpose only!!
+//CORS middleware
+var allowCrossDomain = function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+}
+app.use(allowCrossDomain);
+//==============================
+
 app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
@@ -37,6 +49,8 @@ const api = require('./server/routes/index');
 //Parser for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+
 
 //Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));

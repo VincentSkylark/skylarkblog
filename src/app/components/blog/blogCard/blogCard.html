@@ -1,0 +1,16 @@
+<md-card class="blog-post">
+  <md-card-header>
+    <md-card-title><a [routerLink]="['/blog/'+blog._id]">{{blog.title}}</a></md-card-title>
+    <md-card-subtitle>Tags:<span *ngFor="let tag of blog.tag">{{tag}} </span> by:{{blog.author}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content fxLayout="row" fxLayout.xs="column">
+    <div fxFlex="50" fxFlex.xs="100" class="post-images">
+      <img class="post-image" [src]="[blog.imageUrl ? blog.imageUrl : '../../../../assets/img/avatar.jpg']" />
+    </div>
+    <div fxFlex="50" fxFlex.xs="100" class="post-brief">{{blog.brief}}</div>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>Like</button>
+    <button md-button>view more</button>
+  </md-card-actions>
+</md-card>

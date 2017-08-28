@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\server\\auth",
-    "\\server\\rss",
     "\\src",
     "\\src\\app",
     "\\src\\app\\common",
     "\\src\\app\\common\\navbar",
     "\\src\\app\\components",
+    "\\src\\app\\components\\blog",
+    "\\src\\app\\components\\home",
     "\\src\\assets",
     "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\assets\\img\\logo.png",
+  "SelectedNode": "\\src\\app\\common\\navbar\\navbar.html",
   "PreviewInSolutionExplorer": false
 }

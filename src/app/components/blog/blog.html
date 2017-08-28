@@ -1,5 +1,25 @@
-<h1>
-  This is Blog
-</h1>
-<sidenav></sidenav>
-<post></post>
+<div fxLayout="row">
+  <div fxFlex="70" fxFlex.xs="100">
+    <div *ngFor="let post of blogs">
+      <blog-card [blog]="post"></blog-card>
+    </div>
+    
+
+
+    <div class="paginator">
+      <md-paginator [length]="pageModel.length"
+                    [pageSize]="pageModel.pageSize"
+                    [pageSizeOptions]="pageModel.pageSizeOptions"
+                    (page)="pageEvent = $event">
+      </md-paginator>
+    </div>
+
+  </div>
+
+  <div fxFlex="30" fxHide.xs>
+    <sidenav></sidenav>
+  </div>
+
+</div>
+
+
