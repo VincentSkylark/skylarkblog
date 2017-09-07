@@ -18,6 +18,10 @@ export class BlogService {
     constructor(private http: Http) {
         this.API_URL = 'http://localhost:3000/api';
     }
+    public getBlogSize(query?: object) {
+        let url: string = this.API_URL + '/blogsize';
+        return this.http.get(url, { body: query });
+    }
 
     public getBlogs(pageNumber?: number) {
         let url: string = this.API_URL + '/blog';

@@ -12,6 +12,7 @@ router.post('/blog',blogCtrl.postBlog);
 router.post('/blog/comment/:blogId',blogCtrl.addComment);
 router.get('/blog/:blogId',blogCtrl.getBlogById );
 router.get('/blog', blogCtrl.getBlogs);
+router.get('/blogsize', blogCtrl.getBlogSize);
 router.put('/blog/:blogId', blogCtrl.updateBlog);
 router.delete('/blog/delete/:blogId', blogCtrl.deleteBlogs);
 

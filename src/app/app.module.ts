@@ -8,14 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModules } from './material.module';
 
-import { BlogModule } from './components/blog/blog.module';
-
 import { AppComponent } from './app.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
 
 import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { BlogCardComponent } from './components/blog/blogCard/blogCard.component';
+import { SidenavComponent } from './components/blog/sidenav/sidenav.component';
 import { PostComponent } from './components/blog/post/post.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -29,14 +29,16 @@ import { ContactComponent } from './components/contact/contact.component';
         AppRouteModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
-        MaterialModules,
-        BlogModule
+        MaterialModules
     ],
     declarations: [
         AppComponent,
         FooterComponent,
         NavbarComponent,
         HomeComponent,
+        BlogComponent,
+        BlogCardComponent,
+        SidenavComponent,
         PostComponent,
         PortfolioComponent,
         ContactComponent

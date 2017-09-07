@@ -171,7 +171,7 @@ module.exports.getBlogs = function (req, res) {
     blogPost.find({ isActive: true })
         .skip((pageNumber - 1) * pageSize)
         .limit(pageSize)
-        .sort({})
+        .sort({ created_date : -1})
         .exec((err, doc) => {
             if (err) {
                 res.send(err);
@@ -182,4 +182,16 @@ module.exports.getBlogs = function (req, res) {
         });
 
 };
+
+module.exports.getBlogSize = function (req, res) {
+    console.log("get blog size");
+    let query = req.body;
+    blogPost.count(query, (err, doc) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(doc); // node handles number differently
+        }
+    });
+}
 

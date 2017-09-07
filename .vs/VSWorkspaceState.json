@@ -1,16 +1,17 @@
 {
   "ExpandedNodes": [
     "",
+    "\\environment",
+    "\\server",
+    "\\server\\routes",
+    "\\server\\routes\\controller",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\common",
-    "\\src\\app\\common\\navbar",
     "\\src\\app\\components",
     "\\src\\app\\components\\blog",
-    "\\src\\app\\components\\home",
-    "\\src\\assets",
-    "\\src\\assets\\img"
+    "\\src\\app\\components\\blog\\sidenav",
+    "\\src\\app\\components\\contact"
   ],
-  "SelectedNode": "\\src\\app\\common\\navbar\\navbar.html",
+  "SelectedNode": "\\src\\app\\components\\blog\\sidenav\\sidenav.html",
   "PreviewInSolutionExplorer": false
 }

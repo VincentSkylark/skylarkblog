@@ -3,8 +3,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'skylark-app',
   templateUrl: './app.component.html',
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./app.less']
+  styleUrls: ['./app.less'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class AppComponent {
