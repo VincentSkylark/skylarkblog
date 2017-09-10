@@ -10,6 +10,8 @@ import { PostComponent } from './components/blog/post/post.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
 
+import { AboutMeComponent } from './components/others/about-me.component';
+
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
@@ -17,7 +19,9 @@ const routes: Routes = [
     { path: 'blog', component: BlogComponent },
     
     { path: 'portfolio', component: PortfolioComponent },
-    { path: 'contact', component: ContactComponent }
+    { path: 'contact', component: ContactComponent },
+
+    { path: 'aboutme', component: AboutMeComponent }
 
 ];
 

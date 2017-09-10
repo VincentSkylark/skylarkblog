@@ -11,7 +11,19 @@
         <div fxFlex="100" class="post-image">
           <img src="../../../../assets/img/avatar.jpg" />
         </div>
-        <div fxFlex="100" class="post-brief">{{blog.content}}</div>
+        <div fxFlex="100" class="post-content" highlight-js-content>
+          <pre>
+          <code #snippet class="typescript highlight-this">
+                class Greeter {{ '{' }}
+                    constructor(public greeting: string) {{ '{' }} {{ '}' }}
+
+                    greet() {{ '{' }}
+                        return "hello world";
+                    {{ '}' }}
+                {{ '}' }};
+            </code>
+        </pre>
+        </div>
       </md-card-content>
     </md-card>
 

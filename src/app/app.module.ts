@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRouteModule } from './app.route';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HighlightJsModule } from 'angular2-highlight-js';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModules } from './material.module';
@@ -20,6 +21,8 @@ import { PostComponent } from './components/blog/post/post.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
 
+import { AboutMeComponent } from './components/others/about-me.component';
+
 
 @NgModule({
     imports: [
@@ -28,6 +31,7 @@ import { ContactComponent } from './components/contact/contact.component';
         HttpModule,
         AppRouteModule,
         BrowserAnimationsModule,
+        HighlightJsModule,
         FlexLayoutModule,
         MaterialModules
     ],
@@ -41,7 +45,8 @@ import { ContactComponent } from './components/contact/contact.component';
         SidenavComponent,
         PostComponent,
         PortfolioComponent,
-        ContactComponent
+        ContactComponent,
+        AboutMeComponent
     ],
     bootstrap: [
         AppComponent

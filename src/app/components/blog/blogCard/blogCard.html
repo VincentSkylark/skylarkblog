@@ -5,11 +5,11 @@
   </md-card-header>
   <md-card-content fxLayout="row" fxLayout.xs="column">
     <div fxFlex="50" fxFlex.xs="100" class="post-images">
-      <img class="post-image" [src]="[blog.imageUrl ? blog.imageUrl : '../../../../assets/img/avatar.jpg']" />
+      <img class="post-image" [src]="[blog.imageUrl ? blog.imageUrl : '../../../../assets/img/default-post.jpg']" />
     </div>
     <div fxFlex="50" fxFlex.xs="100" class="post-brief">{{blog.brief}}</div>
   </md-card-content>
-  <md-card-actions>
+  <md-card-actions class="post-card-action">
     <button md-button>Like</button>
     <button md-button>view more</button>
   </md-card-actions>

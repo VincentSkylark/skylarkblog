@@ -8,10 +8,9 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\blog",
-    "\\src\\app\\components\\blog\\sidenav",
-    "\\src\\app\\components\\contact"
+    "\\src\\app\\components\\others",
+    "\\src\\app\\components\\portfolio"
   ],
-  "SelectedNode": "\\src\\app\\components\\blog\\sidenav\\sidenav.html",
+  "SelectedNode": "\\src\\app\\components\\others\\aboutMe.html",
   "PreviewInSolutionExplorer": false
 }
