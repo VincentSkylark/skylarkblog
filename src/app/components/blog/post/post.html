@@ -2,12 +2,7 @@
 <div fxLayout="row" class="post">
   <div fxFlex="70" fxFlex.xs="100">
 
-    <md-card class="blog-post">
-      <md-card-header>
-        <md-card-title>{{blog.title}}</md-card-title>
-        <md-card-subtitle>Tags:<span *ngFor="let tag of blog.tag">{{tag}} </span> by:{{blog.author}}</md-card-subtitle>
-      </md-card-header>
-      <md-card-content fxLayout="column">
+
         <div fxFlex="100" class="post-image">
           <img src="../../../../assets/img/avatar.jpg" />
         </div>
@@ -24,8 +19,7 @@
             </code>
         </pre>
         </div>
-      </md-card-content>
-    </md-card>
+
 
 
 

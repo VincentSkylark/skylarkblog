@@ -22,6 +22,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 import { AboutMeComponent } from './components/others/about-me.component';
+import { PrivacyComponent } from './components/others/privacy.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { AboutMeComponent } from './components/others/about-me.component';
         PostComponent,
         PortfolioComponent,
         ContactComponent,
-        AboutMeComponent
+        AboutMeComponent,
+        PrivacyComponent
     ],
     bootstrap: [
         AppComponent

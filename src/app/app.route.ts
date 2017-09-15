@@ -11,6 +11,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 import { AboutMeComponent } from './components/others/about-me.component';
+import { PrivacyComponent } from './components/others/privacy.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,7 +22,8 @@ const routes: Routes = [
     { path: 'portfolio', component: PortfolioComponent },
     { path: 'contact', component: ContactComponent },
 
-    { path: 'aboutme', component: AboutMeComponent }
+    { path: 'aboutme', component: AboutMeComponent },
+    { path: 'privacy', component: PrivacyComponent }
 
 ];
 

@@ -1,16 +1,18 @@
 {
   "ExpandedNodes": [
     "",
-    "\\environment",
     "\\server",
-    "\\server\\routes",
     "\\server\\routes\\controller",
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
+    "\\src\\app\\components\\blog",
+    "\\src\\app\\components\\blog\\blogCard",
+    "\\src\\app\\components\\blog\\post",
     "\\src\\app\\components\\others",
-    "\\src\\app\\components\\portfolio"
+    "\\src\\assets",
+    "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\components\\others\\aboutMe.html",
+  "SelectedNode": "\\src\\app\\components\\others\\about-me.html",
   "PreviewInSolutionExplorer": false
 }
