@@ -1,27 +1,32 @@
 #navbar {
-  #header {
-    min-height: 200px;
-    text-align: center;
-    background-image: url("../../../assets/img/header.jpg");
-    background-size: cover;
-    background-position: center center;
-    overflow: hidden;
+  height: 70px;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 1000;
+  background-color: #232a31;
+  box-shadow: 0 0 10px 5px rgba(0,0,0,0.05);
+
+  #logo-text {
+    font-size: 18px;
+    color: #FFF;
+    border: solid 1px #FFF;
   }
 
-  #logo {
-    height: 200px;
+  #nav-logo{
+    width: 20%;
   }
 
   #nav-menu {
-    height: 70px;
-    box-shadow: 0 0 10px 5px rgba(0,0,0,0.05);
+    width: 80%;
+    padding-right: 20px;
   }
 
   ul, #nav-list {
-    height: 100%;
     list-style: none;
-    color: #666;
     line-height: 24px;
+    text-align: right;
+    float: right;
 
     .nav-item {
       font-size: 18px;
@@ -30,7 +35,13 @@
       padding: 23px 0;
 
       a {
+        color: #FFF;
+        text-shadow: 0 1px 0 #666;
         padding: 0;
+        text-decoration: none;
+      }
+
+      a:active {
         text-decoration: none;
       }
     }
