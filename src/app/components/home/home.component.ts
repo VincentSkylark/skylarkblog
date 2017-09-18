@@ -14,44 +14,44 @@ export class HomeComponent {
         {
             iconUrl: '../../assets/icons/html_5.png',
             name: 'HTML 5',
-            description: 'sample'
+            description: 'HTML 5 is the current marjor HTML standard. It is used for creating stastic page or views model with style sheet. Topics on HTML 5 will cover offline web application, multi-threading and local storage.'
         },
         {
             iconUrl: '../../assets/icons/javascript.png',
             name: 'JavaScript',
-            description: ''
+            description: 'JavaScript is the core technology for web development. It is said any application that can be written in JavaScript, will eventually be written in JavaScript. Topics on Javascript will include changes introduced by EMACScript6, popular tools, asynchronous function, event handling and debugging workflow.'
         },
         {
             iconUrl: '../../assets/icons/nodejs.png',
             name: 'Node.js',
-            descirption: ''
+            descirption: 'Node is a JavaScript runtime that uses an event-driven, non-blocking I/O model. Articles about Node.js will display some common usage with sample code.'
         },
         {
             iconUrl: '../../assets/icons/angularjs.png',
             name: 'angularjs',
-            description: 'sample'
+            description: 'One of the most popular JavaScript MVW framework developed by Google. It allows developer create rich Internet single page application. '
         }
     ];
     skillset2 = [
         {
             iconUrl: '../../assets/icons/angular.png',
             name: 'angular',
-            description: 'sample'
+            description: 'Commonly referred as Angular 2+, which is a ground-up rewrite of AngularJS and has many unique qualities.'
         },
         {
             iconUrl: '../../assets/icons/java.png',
             name: 'JAVA',
-            description: 'angularjs Info'
+            description: 'This topic is'
         },
         {
             iconUrl: '../../assets/icons/github.png',
             name: 'Coding',
-            description: 'angular Info'
+            description: 'Coding contains various topics '
         },
         {
             iconUrl: '../../assets/icons/thoughts.png',
             name: 'Other Thoughts',
-            description: 'angular Info'
+            description: 'This topic indicates skills and thoughts that are closely related with a software developer but not belonging to the field of computer science.'
         }
     ];
 
