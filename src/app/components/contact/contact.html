@@ -4,5 +4,22 @@
     If you have any questions or thoughts at all about my blog posts, please do not hesitate to contact me below.<br />
     I appreciate all your participation.
   </p>
-</div>
+  <div fxLayout="row" fxLayout.xs="column">
+    <!--Contact Information-->
+    <div fxFlex="50" fxFlex.xs="100" class="contact-info">
+      Contact Information
+    </div>
+    <!--Contact Form-->
+    <div fxFlex="50" fxFlex.xs="100" class="contact-forms">
+      <form fxFlex="80" [formGroup]="contactForm" (ngSubmit)="submit()">
+        <input class="contact-form" type="text" placeholder="Full Name" formControlName="name" required />
+        <input class="contact-form" type="email" placeholder="Email" formControlName="email" required />
+        <input class="contact-form" type="tel" placeholder="Phone Number" formControlName="tel" />
+        <textarea class="contact-form contact-textarea" placeholder="Message" formControlName="message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    
+  </div>
+  </div>
 

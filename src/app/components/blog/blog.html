@@ -1,6 +1,6 @@
 <div class="blog">
   <div fxLayout="row" class="blog-content">
-    <div fxFlex="70" fxFlex.xs="100">
+    <div fxFlex="75" fxFlex.xs="100">
       <div *ngFor="let post of blogs">
         <blog-card [blog]="post"></blog-card>
       </div>
@@ -14,7 +14,7 @@
 
     </div>
 
-    <div fxFlex="30" fxHide.xs>
+    <div class="sidenav" fxFlex="25" fxHide.xs>
       <sidenav></sidenav>
     </div>
 

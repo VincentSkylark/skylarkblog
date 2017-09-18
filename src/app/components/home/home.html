@@ -3,13 +3,46 @@
 
   </div>
   <div class="home-title-card">
-    <span class="title-texture">You Only Live Once<br /> But If You Do It Right<br /> Once Is Enough.</span>
+    <span class="title-texture">Sample Content<br />Sample Subtotal</span>
   </div>
-  
+
 </div>
-<div class="introduction">
+<div class="section">
   Welcome to the skylark blog. This site is built for personal hobbies that cover software development, geek thoughts and project exhibition. Hope you all enjoy your time here.
 </div>
-<div class="recent-blog">
 
+<div class="section">
+  <h1>Skills and Topics</h1>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center">
+    <!--Column 1-->
+    <div>
+      <div *ngFor="let skill of skillset1">
+        <div class="skill-row" fxLayout="row">
+          <img class="skill-icon" [src]="skill.iconUrl" />
+          <div>
+            <h3>{{skill.name}}</h3>
+            <p class="skill-description">{{skill.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Column 2-->
+    <div>
+      <div *ngFor="let skill of skillset2">
+        <div class="skill-row" fxLayout="row">
+          <img class="skill-icon" [src]="skill.iconUrl" />
+          <div>
+            <h3>{{skill.name}}</h3>
+            <p class="skill-description">{{skill.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  Contact
 </div>

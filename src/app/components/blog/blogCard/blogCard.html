@@ -1,18 +1,13 @@
-<md-card class="blog-post">
-  <md-card-header>
-    <md-card-title class="card-title"><a [routerLink]="['/blog/'+blog._id]">{{blog.title}}</a></md-card-title>
-    <md-card-subtitle class="card-subtitle"><span class="card-prefix">Tags:</span><span *ngFor="let tag of blog.tag">{{tag}} </span> <span class="card-prefix">By: </span>{{blog.author}}</md-card-subtitle>
-  </md-card-header>
-  <md-card-content fxLayout="row" fxLayout.xs="column">
-    <div fxFlex="50" fxFlex.xs="100" class="post-images">
-      <a [routerLink]="['/blog/'+blog._id]">
-        <img class="post-image" [src]="[blog.imageUrl ? blog.imageUrl : '../../../../assets/img/default-post.jpg']" />
-      </a>
-    </div>
-    <div fxFlex="50" fxFlex.xs="100" class="post-brief">{{blog.brief}}</div>
-  </md-card-content>
-  <md-card-actions class="post-card-action">
-    <button md-button>Like</button>
-    <button md-button>view more</button>
-  </md-card-actions>
-</md-card>
+<div class="blog-post">
+  <!--Title-->
+  <h1 class="title"><a [routerLink]="['/blog/'+blog._id]">{{blog.title}}</a></h1>
+  <!--Subtitle-->
+  <h3 class="subtitle"><span class="card-prefix">By: </span>{{blog.author}} <span class="card-prefix">Tags:</span><span *ngFor="let tag of blog.tag">{{tag}} </span> </h3>
+  <!--Post Image-->
+  <div class="post-images">
+    <a [routerLink]="['/blog/'+blog._id]">
+      <img class="post-image" [src]="[blog.imageUrl ? blog.imageUrl : '../../../../assets/img/default-post.jpg']" />
+    </a>
+  </div>
+  <div class="post-brief">{{blog.brief}}</div>
+</div>

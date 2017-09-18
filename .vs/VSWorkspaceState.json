@@ -6,11 +6,11 @@
     "\\src\\app\\common",
     "\\src\\app\\components",
     "\\src\\app\\components\\blog",
-    "\\src\\app\\components\\blog\\blogCard",
-    "\\src\\app\\components\\blog\\post",
-    "\\src\\app\\components\\blog\\sidenav",
-    "\\src\\app\\components\\others"
+    "\\src\\app\\components\\contact",
+    "\\src\\app\\components\\others",
+    "\\src\\assets",
+    "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\components\\blog\\sidenav\\sidenav.html",
+  "SelectedNode": "\\src\\app\\components\\blog\\sidenav\\sidenav.less",
   "PreviewInSolutionExplorer": false
 }
