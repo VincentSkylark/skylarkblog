@@ -24,19 +24,19 @@ export class HomeComponent {
         {
             iconUrl: '../../assets/icons/nodejs.png',
             name: 'Node.js',
-            descirption: 'Node is a JavaScript runtime that uses an event-driven, non-blocking I/O model. Articles about Node.js will display some common usage with sample code.'
+            descirption: 'Node is a JavaScript runtime that uses an event-driven, non-blocking I/O model. Articles about Node.js will display how node is served as either individual application or as a meddle layer between database and client-side application.'
         },
         {
             iconUrl: '../../assets/icons/angularjs.png',
             name: 'angularjs',
-            description: 'One of the most popular JavaScript MVW framework developed by Google. It allows developer create rich Internet single page application. '
+            description: 'One of the most popular JavaScript MVW framework developed by Google and an active community. It allows developer to create rich Internet single page application. Topic on this includes introduction of featured fuctionality, common issues with solution, and good practice.'
         }
     ];
     skillset2 = [
         {
             iconUrl: '../../assets/icons/angular.png',
             name: 'angular',
-            description: 'Commonly referred as Angular 2+, which is a ground-up rewrite of AngularJS and has many unique qualities.'
+            description: 'Commonly referred as Angular 2+, which is a ground-up rewrite of AngularJS and has many unique qualities. '
         },
         {
             iconUrl: '../../assets/icons/java.png',
