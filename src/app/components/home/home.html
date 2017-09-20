@@ -13,33 +13,30 @@
 
 <div class="section">
   <h1>Skills and Topics</h1>
-  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center">
-    <!--Column 1-->
-    <div>
-      <div *ngFor="let skill of skillset1">
-        <div class="skill-row" fxLayout="row">
-          <img class="skill-icon" [src]="skill.iconUrl" />
-          <div>
-            <h3>{{skill.name}}</h3>
-            <p class="skill-description">{{skill.description}}</p>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <div *ngFor="let skills of skillset">
+      <!--Columns-->
+      <div fxLayout="row" fxLayout.xs="column">
+        <div fxFlex="50" fxFlex.xs="100">
+          <div class="skill-row" fxLayout="row" fxLayoutAlign="space-between center">
+            <img class="skill-icon" [src]="skills[0].iconUrl" />
+            <div>
+              <h3>{{skills[0].name}}</h3>
+              <p class="skill-description">{{skills[0].description}}</p>
+            </div>
+          </div>
+        </div>
+        <div fxFlex="50" fxFlex.xs="100">
+          <div class="skill-row" fxLayout="row" fxLayoutAlign="space-between center">
+            <img class="skill-icon" [src]="skills[1].iconUrl" />
+            <div>
+              <h3>{{skills[1].name}}</h3>
+              <p class="skill-description">{{skills[1].description}}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!--Column 2-->
-    <div>
-      <div *ngFor="let skill of skillset2">
-        <div class="skill-row" fxLayout="row">
-          <img class="skill-icon" [src]="skill.iconUrl" />
-          <div>
-            <h3>{{skill.name}}</h3>
-            <p class="skill-description">{{skill.description}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
 

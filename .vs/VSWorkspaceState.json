@@ -1,16 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\src\\app",
-    "\\src\\app\\common",
-    "\\src\\app\\components",
-    "\\src\\app\\components\\blog",
-    "\\src\\app\\components\\contact",
-    "\\src\\app\\components\\others",
-    "\\src\\assets",
-    "\\src\\assets\\img"
+    "\\server",
+    "\\server\\auth",
+    "\\views"
   ],
-  "SelectedNode": "\\src\\app\\components\\blog\\sidenav\\sidenav.less",
+  "SelectedNode": "\\views\\index.ejs",
   "PreviewInSolutionExplorer": false
 }

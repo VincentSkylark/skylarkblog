@@ -12,6 +12,7 @@ import { ContactComponent } from './components/contact/contact.component';
 
 import { AboutMeComponent } from './components/others/about-me.component';
 import { PrivacyComponent } from './components/others/privacy.component';
+import { PageNotFoundComponent } from './common/error/404.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,7 +24,9 @@ const routes: Routes = [
     { path: 'contact', component: ContactComponent },
 
     { path: 'aboutme', component: AboutMeComponent },
-    { path: 'privacy', component: PrivacyComponent }
+    { path: 'privacy', component: PrivacyComponent },
+
+    { path: '**', component: PageNotFoundComponent }
 
 ];
 

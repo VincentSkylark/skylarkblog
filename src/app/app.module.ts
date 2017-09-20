@@ -12,6 +12,7 @@ import { MaterialModules } from './material.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
+import { PageNotFoundComponent } from './common/error/404.component';
 
 import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
@@ -41,6 +42,7 @@ import { PrivacyComponent } from './components/others/privacy.component';
         AppComponent,
         FooterComponent,
         NavbarComponent,
+        PageNotFoundComponent,
         HomeComponent,
         BlogComponent,
         BlogCardComponent,
