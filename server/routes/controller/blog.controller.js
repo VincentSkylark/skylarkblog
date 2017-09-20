@@ -5,193 +5,239 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost:27017/blogPosts', { useMongoClient: true });
+mongoose.connect('mongodb://localhost:27017/blogPosts', {useMongoClient: true});
 
 // Schema for blog post
 let postSchema = new Schema({
-    title: { type: String, require: true },
-    author: { type: String, default: 'Vincent He' },
-    tag: [{ type: String }],
-    views: { type: Number, default: 0 },
-    created_date: { type: Date, default: Date.now },
-    isActive: { type: Boolean, default: true },
-    imageUrl: String,
-    brief: String,
-    content: String,
-    comments: [
-        {
-            author: { type: String, default: 'visitor' },
-            content: String
-        }
-    ]
+  title: {type: String, require: true},
+  author: {type: String, default: 'Vincent He'},
+  tag: [{type: String}],
+  views: {type: Number, default: 0},
+  created_date: {type: Date, default: Date.now},
+  isActive: {type: Boolean, default: true},
+  imageUrl: String,
+  brief: String,
+  content: String,
+  comments: [{type: Schema.ObjectId, ref: 'blogComments'}]
+
+});
+
+// Schema for comment
+let commentSchema = new Schema({
+  name: {type: String, default: 'visitor'},
+  content: {type: String}
 });
 
 // Model using post schema
 let blogPost = mongoose.model('blogPost', postSchema);
+let comments = mongoose.model('blogComments', commentSchema);
 
 /**
- * ALPHA CRUD APIs
+ * Blog CRUD APIs
  */
 module.exports.postBlog = function (req, res) {
-    console.log("post blog");
-    // req.body = {
-    //   title: String,
-    //   author: String,
-    //   tag: Array,
-    //   imageUrl: String,
-    //   brief: String
-    //   content: String
-    // };
+  console.log("post blog");
+  // req.body = {
+  //   title: String,
+  //   author: String,
+  //   tag: Array,
+  //   imageUrl: String,
+  //   brief: String
+  //   content: String
+  // };
 
-    let newBlog = new blogPost({
-        title: req.body.title,
-        author: req.body.author,
-        tag: req.body.tag,
-        imageUrl: req.body.imageUrl,
-        brief: req.body.brief,
-        content: req.body.content
-    });
+  let newBlog = new blogPost({
+    title: req.body.title,
+    author: req.body.author,
+    tag: req.body.tag,
+    imageUrl: req.body.imageUrl,
+    brief: req.body.brief,
+    content: req.body.content
+  });
 
-    newBlog.save((err, post) => {
-        if (err) {
-            res.send(err);
-        }
-        res.send(201, post);
-    });
+  newBlog.save((err, post) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.status(201).send(post);
+  });
 
 };
 
 module.exports.updateBlog = function (req, res) {
-    console.log("edit blog");
-    // req.param = {blogId: Number};
-    // req.body = {
-    //   title: String,
-    //   tag: Array,
-    //   imageUrl: String
-    //   brief: String,
-    //   contents: String
-    // };
+  console.log("edit blog");
+  // req.param = {blogId: Number};
+  // req.body = {
+  //   title: String,
+  //   tag: Array,
+  //   imageUrl: String
+  //   brief: String,
+  //   contents: String
+  // };
 
-    let updateBlog = {
-        isActive: true
-    };
-    if (req.body.title) {
-        updateBlog.title = req.body.title
+  let updateBlog = {
+    isActive: true
+  };
+  if (req.body.title) {
+    updateBlog.title = req.body.title
+  }
+  if (req.body.tag) {
+    updateBlog.$set = {tag: req.body.tag}
+  }
+  if (req.body.imageUrl) {
+    updateBlog.imageUrl = req.body.imageUrl
+  }
+  if (req.body.brief) {
+    updateBlog.brief = req.body.brief
+  }
+  if (req.body.contents) {
+    updateBlog.content = req.body.contents
+  }
+
+  let option = {new: true};
+  blogPost.findByIdAndUpdate(req.params.blogId, updateBlog, option, (err, doc) => {
+    if (err) {
+      res.status(500).send(err);
     }
-    if (req.body.tag) {
-        updateBlog.$set = { tag: req.body.tag }
-    }
-    if (req.body.imageUrl) {
-        updateBlog.imageUrl = req.body.imageUrl
-    }
-    if (req.body.brief) {
-        updateBlog.brief = req.body.brief
-    }
-    if (req.body.contents) {
-        updateBlog.content = req.body.contents
-    }
-    
-    let option = { new: true };
-    blogPost.findByIdAndUpdate(req.params.blogId, updateBlog, option, (err, doc) => {
-        if (err) {
-            res.send(err);
-        }
-        res.json(doc);
-    });
+    res.json(doc);
+  });
 };
 
 module.exports.deleteBlogs = function (req, res) {
-    console.log("deactivate blog post");
-    // req.param = {blogId: Number};
+  console.log("deactivate blog post");
+  // req.param = {blogId: Number};
 
-    blogPost.findByIdAndUpdate(req.params.blogId, { isActive: false }, (err) => {
-        if (err) {
-            res.send(err);
-        }
-        res.send(200);
-    });
+  blogPost.findByIdAndUpdate(req.params.blogId, {isActive: false}, (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.status(200);
+  });
 };
 /**
  * Public CRUD APIs
  */
 module.exports.addComment = function (req, res) {
-    console.log("add comment");
-    // req.params = {blogId: Number};
-    // req.body = {
-    //   author: String,
-    //   comment: String.
-    // };
+  console.log("add comment");
+  // req.params = {blogId: String};
+  // req.body = {
+  //   name: String,
+  //   comment: String.
+  // };
 
-    let addComment = {
-        $push: {
-            comments: {
-                author: req.body.author,
-                content: req.body.comment
-            }
-        }
-    };
-    let option = { new: true };
+  let comment = new comments({
+    name: req.body.name,
+    content: req.body.content
+  });
+
+  let addComment = {
+    $push: {
+      comments: comment._id
+    }
+  };
+
+  let option = {new: true};
+
+  comment.save((err) => {
+    if (err) {
+      console.log(err);
+      // res.status(500).send(err);
+    }
+
     blogPost.findByIdAndUpdate(req.params.blogId, addComment, option, (err, doc) => {
-        if (err) {
-            res.send(err);
-        }
+      if (err) {
+        console.log(err);
+        // res.status(500).send(err);
+      } else {
         res.json(doc);
+      }
     });
+  });
+
 
 };
 
 module.exports.getBlogById = function (req, res) {
-    console.log("querying post");
-    // req.params = {blogId: Number};
+  console.log("querying post");
+  // req.params = {blogId: Number};
 
-    let increaseView = {
-        $inc: {
-            views: 1
-        }
-    };
-    blogPost.findByIdAndUpdate(req.params.blogId, increaseView, (err, doc) => {
-        if (err) {
-            res.send(err);
-        }
-        res.json(doc);
-    })
+  let increaseView = {
+    $inc: {
+      views: 1
+    }
+  };
+  blogPost.findByIdAndUpdate(req.params.blogId, increaseView, (err, doc) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json(doc);
+  })
 
 };
 
 module.exports.getBlogs = function (req, res) {
-    console.log("get blog list");
-    // req.query = {
-    //   pageSize: Number,
-    //   pageNumber: Number,
-    // };
+  console.log("get blog list");
+  // req.query = {
+  //   pageSize: Number,
+  //   pageNumber: Number,
+  // };
 
-    const pageSize = (req.query.pageSize <= 30 && req.query.pageSize >= 1) ? ~~req.query.pageSize : 15;
-    const pageNumber = (req.query.pageNumber >= 1) ? ~~req.query.pageNumber : 1;
+  const pageSize = (req.query.pageSize <= 30 && req.query.pageSize >= 1) ? ~~req.query.pageSize : 15;
+  const pageNumber = (req.query.pageNumber >= 1) ? ~~req.query.pageNumber : 1;
 
-    blogPost.find({ isActive: true })
-        .skip((pageNumber - 1) * pageSize)
-        .limit(pageSize)
-        .sort({ created_date : -1})
-        .exec((err, doc) => {
-            if (err) {
-                res.send(err);
-            } else {
-                res.json(doc);
-            }
+  blogPost.find({isActive: true})
+    .sort({created_date: -1})
+    .skip((pageNumber - 1) * pageSize)
+    .limit(pageSize)
+    .exec((err, doc) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.json(doc);
+      }
 
-        });
+    });
 
 };
 
 module.exports.getBlogSize = function (req, res) {
-    console.log("get blog size");
-    let query = req.body;
-    blogPost.count(query, (err, doc) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.json(doc); // node handles number differently
-        }
-    });
-}
+  console.log("get blog size");
+  let query = req.body;
+  blogPost.count(query, (err, doc) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.json(doc); // node handles number differently
+    }
+  });
+};
 
+module.exports.getPopularBlogs = function (req, res) {
+  console.log("get popular blogs");
+  // req.query = {
+  //   pageSize: Number,
+  // };
+
+  const pageSize = (req.query.pageSize <= 30 && req.query.pageSize >= 1) ? ~~req.query.pageSize : 15;
+
+  blogPost.find({isActive: true}, {content: 0})
+    .sort({views: -1})
+    .limit(pageSize)
+    .exec((err, doc) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.json(doc);
+        }
+      }
+    );
+
+};
+
+/**
+ * Comment CRUD APIs
+ */
+
+module.exports.getComments = function (req, res) {
+
+};

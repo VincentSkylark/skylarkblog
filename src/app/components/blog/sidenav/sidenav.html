@@ -1,5 +1,5 @@
 <div class="side-nav">
-  
+
   <h3>Categories</h3>
 
   <h3>About The Host</h3>
@@ -16,7 +16,8 @@
   <!--Data Picker-->
   <md-input-container>
     <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
-    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+    <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+    <md-datepicker #picker></md-datepicker>
   </md-input-container>
   <md-datepicker #picker></md-datepicker>
 </div>

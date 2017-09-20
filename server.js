@@ -36,8 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-require('./server/auth/auth')(passport);
-require('./server/auth/authRoutes')(app, passport);
+require('./server/auth/auth');
 
 
 const rssModule = require('./server/rss/rssSub');
