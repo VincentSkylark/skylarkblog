@@ -8,36 +8,25 @@ const app = express();
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
-const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const flash = require('connect-flash');
 
 app.use(cookieParser());
 app.use(bodyParser());
 
 //CORS for test purpose only!!
 //CORS middleware
-var allowCrossDomain = function (req, res, next) {
+const allowCrossDomain = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
     next();
-}
+};
 app.use(allowCrossDomain);
+
 //==============================
-
-app.set('view engine', 'ejs'); // set up ejs for templating
-
-// required for passport
-app.use(session({ secret: 'secret', resave: true})); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
-
 require('./server/auth/auth');
-
 
 const rssModule = require('./server/rss/rssSub');
 // rssModule.rssSub(); //RSS subscribe module
@@ -48,8 +37,6 @@ const api = require('./server/routes/index');
 //Parser for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-
 
 //Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));

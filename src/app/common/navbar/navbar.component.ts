@@ -41,7 +41,6 @@ export class NavbarComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         this.googleLoginInit();
-        this.authService.test("connection succeed");
     }
 
 }

@@ -1,7 +1,7 @@
 
 <div id="navbar" fxLayout="row">
   <div id="nav-logo">
-    <img src="../../assets/img/logo.png" alt="Skylar Blog" />
+    <img src="../../assets/img/logo.png" alt="Skylar Blog" style="height: 100%" />
   </div>
   <div id="nav-menu">
     <ul id="nav-list" fxHide.xs>
@@ -13,7 +13,11 @@
     </ul>
 
   </div>
-  <div id="nav-toggle-button" fxShow.gt-xs="false" (click)="toggleNav = !toggleNav">MENU</div>
+  <div id="nav-toggle-button" fxShow.gt-xs="false" (click)="toggleNav = !toggleNav">
+    <div class="menu-icon"></div>
+    <div class="menu-icon"></div>
+    <div class="menu-icon"></div>
+  </div>
 </div>
 <ul id="nav-list-mobile" fxShow.gt-xs="false" *ngIf="toggleNav">
   <li class="nav-item-mobile"><a class="nav-link" [routerLink]="['/home']">HOME</a></li>

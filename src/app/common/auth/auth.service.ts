@@ -11,11 +11,10 @@ export class AuthService {
 
     private profile: any;
 
-    public userName: string = 'Vincent';
+    public userName: string = 'Guest';
 
     public setUser(profile) {
         this.profile = profile;
-        console.log(this.profile);
     }
 
     public test(str) {
