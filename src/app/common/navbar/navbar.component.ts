@@ -9,8 +9,7 @@ declare const gapi: any;
 @Component({
     selector: 'navbar',
     templateUrl: './navbar.html',
-    styleUrls: ['./navbar.less'],
-    providers: [AuthService]
+    styleUrls: ['./navbar.less']
 })
 
 export class NavbarComponent implements AfterViewInit {
@@ -25,6 +24,7 @@ export class NavbarComponent implements AfterViewInit {
                 scope: 'profile email'
             });
             this.attachSignin(document.getElementById('g-signin'));
+            this.attachSignin(document.getElementById('g-signin-mobile'));
         });
     }
 

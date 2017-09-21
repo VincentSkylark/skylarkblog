@@ -30,3 +30,18 @@
   </div>
 
 </div>
+
+<div class="blog-post">
+  <!--Title-->
+  <h1 class="title"><a [routerLink]="['/blog/'+blog._id]">{{blog.title}}</a></h1>
+  <!--Subtitle-->
+  <h3 class="subtitle"><span class="card-prefix">By: </span>{{blog.author}} <span class="card-prefix">Tags:</span><span *ngFor="let tag of blog.tag">{{tag}} </span> </h3>
+  <!--Post Image-->
+  <div class="post-images">
+    <a [routerLink]="['/blog/'+blog._id]">
+      <img class="post-image" [src]="[blog.imageUrl ? blog.imageUrl : '../../../../assets/img/default-post.jpg']" />
+    </a>
+  </div>
+  <div class="post-brief">{{blog.brief}}</div>
+  <div><a class="post-button" [routerLink]="['/blog/'+blog._id]">READ MORE</a></div>
+</div>

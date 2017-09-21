@@ -122,7 +122,7 @@ module.exports.addComment = function (req, res) {
   // req.params = {blogId: String};
   // req.body = {
   //   name: String,
-  //   comment: String.
+  //   content: String.
   // };
 
   let comment = new comments({
@@ -140,20 +140,34 @@ module.exports.addComment = function (req, res) {
 
   comment.save((err) => {
     if (err) {
-      console.log(err);
-      // res.status(500).send(err);
+      res.status(500).send(err);
     }
 
     blogPost.findByIdAndUpdate(req.params.blogId, addComment, option, (err, doc) => {
       if (err) {
-        console.log(err);
-        // res.status(500).send(err);
+        res.status(500).send(err);
       } else {
-        res.json(doc);
+          res.status(200).send({message:'success'});
       }
     });
   });
 
+};
+
+module.exports.getComments = function (req, res) {
+    console.log("get comments");
+    //req.params = { blogId: String };
+
+    blogPost.find({ _id: req.params.blogId }, { comments: 1 })
+        .limit(1)
+        .populate('comments')
+        .exec((err, doc) => {
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.json(doc);
+            }
+        });
 
 };
 
@@ -231,13 +245,5 @@ module.exports.getPopularBlogs = function (req, res) {
         }
       }
     );
-
-};
-
-/**
- * Comment CRUD APIs
- */
-
-module.exports.getComments = function (req, res) {
 
 };

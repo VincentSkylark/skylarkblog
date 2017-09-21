@@ -3,6 +3,7 @@
  */
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
+import { AuthService } from '../../common/auth/auth.service';
 
 @Injectable()
 
@@ -15,9 +16,10 @@ export class BlogService {
 
     private API_URL: string;
 
-    constructor(private http: Http) {
+    constructor(private http: Http, private authService: AuthService) {
         this.API_URL = 'http://localhost:3000/api';
     }
+
     public getBlogSize(query?: object) {
         let url: string = this.API_URL + '/blogsize';
         return this.http.get(url, { body: query });
@@ -37,7 +39,10 @@ export class BlogService {
         return this.http.get(url, { headers: this.headers, search: params });
     }
 
-    public addComment(blogId: number, author: string, comment: string) {
-
+    public addComment(blogId: string, content: string, name = 'guest') {
+        let url: string = this.API_URL + '/blog/comment/' + blogId;
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('blogId', blogId);
+        return this.http.post(url, {name: name, content: content} ,{ headers: this.headers })
     }
 }

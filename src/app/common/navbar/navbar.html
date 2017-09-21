@@ -1,6 +1,7 @@
+
 <div id="navbar" fxLayout="row">
   <div id="nav-logo">
-    <span id="logo-text">Skylark Blog</span>
+    <img src="../../assets/img/logo.png" alt="Skylar Blog" />
   </div>
   <div id="nav-menu">
     <ul id="nav-list" fxHide.xs>
@@ -8,7 +9,17 @@
       <li class="nav-item"><a class="nav-link" [routerLink]="['/blog']">BLOG</a></li>
       <li class="nav-item"><a class="nav-link" [routerLink]="['/portfolio']">PORTFOLIO</a></li>
       <li class="nav-item"><a class="nav-link" [routerLink]="['/contact']">CONTACT</a></li>
-      <li class="nav-item"><span class="nav-link" id="g-signin">SIGN IN</span></li>
+      <li class="nav-item"><span class="nav-link" id="g-signin">LOGIN</span></li>
     </ul>
+
   </div>
+  <div id="nav-toggle-button" fxShow.gt-xs="false" (click)="toggleNav = !toggleNav">MENU</div>
 </div>
+<ul id="nav-list-mobile" fxShow.gt-xs="false" *ngIf="toggleNav">
+  <li class="nav-item-mobile"><a class="nav-link" [routerLink]="['/home']">HOME</a></li>
+  <li class="nav-item-mobile"><a class="nav-link" [routerLink]="['/blog']">BLOG</a></li>
+  <li class="nav-item-mobile"><a class="nav-link" [routerLink]="['/portfolio']">PORTFOLIO</a></li>
+  <li class="nav-item-mobile"><a class="nav-link" [routerLink]="['/contact']">CONTACT</a></li>
+  <li class="nav-item-mobile"><span class="nav-link" id="g-signin-mobile">LOGIN</span></li>
+</ul>
+

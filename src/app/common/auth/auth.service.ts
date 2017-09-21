@@ -9,9 +9,9 @@ export class AuthService {
         'Accept': 'application/json'
     });
 
-    private API_URL: string;
-
     private profile: any;
+
+    public userName: string = 'Vincent';
 
     public setUser(profile) {
         this.profile = profile;

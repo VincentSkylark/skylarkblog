@@ -1,10 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\server",
-    "\\server\\auth",
-    "\\views"
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\common",
+    "\\src\\app\\common\\auth",
+    "\\src\\app\\common\\navbar",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\blog",
+    "\\src\\app\\components\\blog\\post"
   ],
-  "SelectedNode": "\\views\\index.ejs",
+  "SelectedNode": "\\src\\app\\common\\auth\\auth.service.ts",
   "PreviewInSolutionExplorer": false
 }

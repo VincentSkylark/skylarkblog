@@ -8,16 +8,16 @@ const blogCtrl = require('./controller/blog.controller');
 
 router.get('/feed',feedCtrl.getFeed);
 
-router.post('/blog',blogCtrl.postBlog);
+router.post('/blog',blogCtrl.postBlog); // test api
 router.get('/blog', blogCtrl.getBlogs);
 router.get('/blogsize', blogCtrl.getBlogSize);
 router.get('/blog/popular', blogCtrl.getPopularBlogs);
-// router.put('/blog/:blogId', blogCtrl.updateBlog);
-// router.delete('/blog/delete/:blogId', blogCtrl.deleteBlogs);
+router.delete('/blog/delete/:blogId', blogCtrl.deleteBlogs); // test api
 
 router.post('/blog/comment/:blogId',blogCtrl.addComment);
 router.get('/blog/comment/:blogId', blogCtrl.getComments);
-router.get('/blog/:blogId',blogCtrl.getBlogById );
+router.get('/blog/:blogId', blogCtrl.getBlogById);
+router.put('/blog/:blogId', blogCtrl.updateBlog); // test api
 
 
 
