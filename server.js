@@ -26,7 +26,7 @@ const allowCrossDomain = function (req, res, next) {
 app.use(allowCrossDomain);
 
 //==============================
-require('./server/auth/auth');
+require('./server/routes/controller/auth.controller');
 
 const rssModule = require('./server/rss/rssSub');
 // rssModule.rssSub(); //RSS subscribe module

@@ -23,7 +23,7 @@ export class BlogComponent implements OnInit {
     pageModel = {
         length: 15,
         pageSize: 15
-    }
+    };
 
     pageChange(evt) {
         // pageIndex is 0 based, pageNumber for api is 1 based

@@ -3,10 +3,10 @@
  */
 const express = require('express');
 const router = express.Router();
-const feedCtrl = require('./controller/feed.controller.js');
+const authCtrl = require('./controller/auth.controller.js');
 const blogCtrl = require('./controller/blog.controller');
 
-router.get('/feed',feedCtrl.getFeed);
+router.post('/auth/valid', authCtrl.validToken);
 
 router.post('/blog',blogCtrl.postBlog); // test api
 router.get('/blog', blogCtrl.getBlogs);

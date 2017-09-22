@@ -17,3 +17,20 @@ client.verifyIdToken(
     // If request specified a G Suite domain:
     //var domain = payload['hd'];
   });
+
+module.exports.validToken = function(req, res){
+  console.log('validate token');
+  // req.body{
+  //   token: string;
+  // }
+  client.verifyIdToken(req.body.token, CLIENT_ID, (err, login)=>{
+    if(err){
+      res.status(401).send(err);
+    } else {
+      let payload = login.getPayload();
+      console.log(payload);
+      res.json(payload);
+    }
+
+  });
+};
