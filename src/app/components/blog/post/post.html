@@ -1,27 +1,19 @@
 
 <div fxLayout="row" class="post">
   <div fxFlex="70" fxFlex.xs="100">
+    <div class="blog-post">
+      <!--Title-->
+      <h1 class="title">{{blog.title}}</h1>
+      <!--Subtitle-->
+      <h3 class="subtitle"><span class="card-prefix">By: </span>{{blog.author}} <span class="card-prefix">Tags:</span><span *ngFor="let tag of blog.tag">{{tag}} </span> </h3>
+      <!--Post Image-->
+      <div class="post-images">
+        <img class="post-image" [src]="[blog.imageUrl ? blog.imageUrl : '../../../../assets/img/default-post.jpg']" />
+      </div>
 
+      <div class="post-content" [innerHTML]="blog.content" highlight-js-content></div>
 
-        <div fxFlex="100" class="post-image">
-          <img src="../../../../assets/img/avatar.jpg" />
-        </div>
-        <div fxFlex="100" class="post-content" highlight-js-content>
-          <pre>
-          <code #snippet class="typescript highlight-this">
-                class Greeter {{ '{' }}
-                    constructor(public greeting: string) {{ '{' }} {{ '}' }}
-
-                    greet() {{ '{' }}
-                        return "hello world";
-                    {{ '}' }}
-                {{ '}' }};
-            </code>
-        </pre>
-        </div>
-
-
-
+    </div>
 
   </div>
 
@@ -31,17 +23,4 @@
 
 </div>
 
-<div class="blog-post">
-  <!--Title-->
-  <h1 class="title"><a [routerLink]="['/blog/'+blog._id]">{{blog.title}}</a></h1>
-  <!--Subtitle-->
-  <h3 class="subtitle"><span class="card-prefix">By: </span>{{blog.author}} <span class="card-prefix">Tags:</span><span *ngFor="let tag of blog.tag">{{tag}} </span> </h3>
-  <!--Post Image-->
-  <div class="post-images">
-    <a [routerLink]="['/blog/'+blog._id]">
-      <img class="post-image" [src]="[blog.imageUrl ? blog.imageUrl : '../../../../assets/img/default-post.jpg']" />
-    </a>
-  </div>
-  <div class="post-brief">{{blog.brief}}</div>
-  <div><a class="post-button" [routerLink]="['/blog/'+blog._id]">READ MORE</a></div>
-</div>
+

@@ -23,10 +23,11 @@ export class PostComponent implements OnInit {
         this.blogService.getBlogById(this.blogId).subscribe((response) => {
             this.blog = response.json();
         });
-        this.blogService.addComment(this.blogId, "Test comment", "bot x")
-            .subscribe((response) => {
-                console.log('add comment', response.json());
-            });
+
+        // this.blogService.addComment(this.blogId, "Test comment", "bot x")
+        //     .subscribe((response) => {
+        //         console.log('add comment', response.json());
+        //     });
     }
-    
+
 }
