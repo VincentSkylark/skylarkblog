@@ -14,6 +14,7 @@ export class SidenavComponent implements OnInit {
 
     constructor(private blogService: BlogService) { }
 
+    //generate data list of the past 6 months;
     private generateAchieveList() {
         const year = this.date.getFullYear();
         const month = this.date.getMonth();
