@@ -1,6 +1,5 @@
-
 <div fxLayout="row" class="post">
-  <div fxFlex="70" fxFlex.xs="100">
+  <div fxFlex="75" fxFlex.xs="100">
     <div class="blog-post">
       <!--Title-->
       <h1 class="title">{{blog.title}}</h1>
@@ -10,17 +9,26 @@
       <div class="post-images">
         <img class="post-image" [src]="[blog.imageUrl ? blog.imageUrl : '../../../../assets/img/default-post.jpg']" />
       </div>
-
       <div class="post-content" [innerHTML]="blog.content" highlight-js-content></div>
-
     </div>
-
+    <!--add new comment--> 
+    <div class="new-comment" >
+      <textarea #newComment class="comment-textarea" placeholder="Your Comment" (keyup)="0"></textarea>
+      <button [disabled]="!newComment.value" [ngClass]="{ 'submit-button': true, 'disabled': !newComment.value}" (click)="addComment(newComment.value)">Add Comment</button>
+    </div>
+    <!--comment list-->
+    <div class="comment" >
+      <span *ngIf="comments.length">Latest Comments:</span>
+      <div class="comment-card" *ngFor="let comment of comments">
+        <h3>{{comment.name}} :</h3>
+        <div class="comment-content">{{comment.content}}</div>
+      </div>
+      
+    </div>
   </div>
 
-  <div fxFlex="30" fxHide.xs>
+  <div class="sidenav" fxFlex="25" fxHide.xs>
     <sidenav></sidenav>
   </div>
 
 </div>
-
-

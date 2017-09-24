@@ -3,34 +3,21 @@ const auth = new GoogleAuth;
 
 
 
-const CLIENT_ID = '80023736792-s4d6r6oijv22p3cjce3o6gj0u949j5fn.apps.googleusercontent.com';
-const token = 'token';
+const CLIENT_ID = '80023736792-4d6r6oijv22p3cjce3o6gj0u949j5fn.apps.googleusercontent.com';
 const client = new auth.OAuth2(CLIENT_ID, '', '');
-client.verifyIdToken(
-  token,
-  CLIENT_ID,
-  // Or, if multiple clients access the backend:
-  //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3],
-  function(e, login) {
-    // var payload = login.getPayload();
-    // var userid = payload['sub'];
-    // If request specified a G Suite domain:
-    //var domain = payload['hd'];
-  });
 
 module.exports.validToken = function(req, res){
-  console.log('validate token');
+    console.log('validate token', CLIENT_ID);
   // req.body{
   //   token: string;
   // }
-  client.verifyIdToken(req.body.token, CLIENT_ID, (err, login)=>{
-    if(err){
-      res.status(401).send(err);
-    } else {
-      let payload = login.getPayload();
-      console.log(payload);
-      res.json(payload);
-    }
+    const token = req.body.token;
 
-  });
+    client.verifyIdToken(token, CLIENT_ID, (err, data) => {
+        if (err) {
+            res.status(401).send(err);
+        } else {
+            res.json(data);
+        }
+    });
 };

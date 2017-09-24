@@ -32,6 +32,11 @@ export class BlogService {
         return this.http.get(url, { headers: this.headers, search: params });
     }
 
+    public getPopularBlogs() {
+        let url: string = this.API_URL + '/blog/popular';
+        return this.http.get(url, { headers: this.headers });
+    }
+
     public getBlogById(blogId: string) {
         let url: string = this.API_URL + '/blog/' + blogId;
         let params: URLSearchParams = new URLSearchParams();
@@ -39,10 +44,16 @@ export class BlogService {
         return this.http.get(url, { headers: this.headers, search: params });
     }
 
+    public getComment(blogId: string) {
+        let url: string = this.API_URL + '/blog/comment/' + blogId;
+        return this.http.get(url, { headers: this.headers });
+    }
+
     public addComment(blogId: string, content: string, name = 'guest') {
         let url: string = this.API_URL + '/blog/comment/' + blogId;
         let params: URLSearchParams = new URLSearchParams();
         params.set('blogId', blogId);
+
         return this.http.post(url, {name: name, content: content} ,{ headers: this.headers })
     }
 }

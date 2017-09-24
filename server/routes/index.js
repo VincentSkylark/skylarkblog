@@ -12,6 +12,7 @@ router.post('/blog',blogCtrl.postBlog); // test api
 router.get('/blog', blogCtrl.getBlogs);
 router.get('/blogsize', blogCtrl.getBlogSize);
 router.get('/blog/popular', blogCtrl.getPopularBlogs);
+router.get('/blog/past', blogCtrl.getPastBlogs);
 router.delete('/blog/delete/:blogId', blogCtrl.deleteBlogs); // test api
 
 router.post('/blog/comment/:blogId',blogCtrl.addComment);

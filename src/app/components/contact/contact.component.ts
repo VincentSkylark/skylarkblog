@@ -3,6 +3,7 @@
  */
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { map } from './map.data';
 
 @Component({
     selector: 'contact',
@@ -11,6 +12,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 })
 
 export class ContactComponent {
+    mapString = map;
 
     contactForm = new FormGroup({
         name: new FormControl(),

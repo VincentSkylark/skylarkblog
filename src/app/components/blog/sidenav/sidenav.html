@@ -1,17 +1,20 @@
 <div class="side-nav">
-
-  <h3>Categories</h3>
-
   <h3>About The Host</h3>
   <div>
     <p>
-      Vincent Skylark is a software developer by day and a tech enthusiast by night.<br />
-      <a [routerLink]="['/aboutme']">More about me.</a>
+      Vincent is a software developer by day and a tech enthusiast by night.
+      <br /><a [routerLink]="['/aboutme']">More about me.</a>
     </p>
   </div>
 
   <h3>Popular Posts</h3>
+  <div *ngFor="let post of popularPosts">
+    <a [routerLink]="['/blog/'+post._id]">{{post.title}}</a>
+  </div>
 
   <h3>Achieves</h3>
+  <div *ngFor="let date of dateList">
+    {{date | date: "MMM y"}}
+  </div>
 
 </div>

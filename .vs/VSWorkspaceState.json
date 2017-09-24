@@ -1,15 +1,18 @@
 {
   "ExpandedNodes": [
     "",
+    "\\server",
+    "\\server\\routes",
+    "\\server\\routes\\controller",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\common",
-    "\\src\\app\\common\\auth",
-    "\\src\\app\\common\\navbar",
     "\\src\\app\\components",
     "\\src\\app\\components\\blog",
-    "\\src\\app\\components\\blog\\post"
+    "\\src\\app\\components\\blog\\comment",
+    "\\src\\app\\components\\blog\\sidenav",
+    "\\src\\assets",
+    "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\common\\auth\\auth.service.ts",
+  "SelectedNode": "\\src\\app\\components\\blog\\post",
   "PreviewInSolutionExplorer": false
 }

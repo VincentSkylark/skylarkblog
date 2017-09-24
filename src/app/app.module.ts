@@ -49,6 +49,7 @@ import { PrivacyComponent } from './components/others/privacy.component';
         SidenavComponent,
         PostComponent,
         PortfolioComponent,
+        PortfolioComponent,
         ContactComponent,
         AboutMeComponent,
         PrivacyComponent

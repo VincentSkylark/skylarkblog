@@ -3,12 +3,14 @@ import { MdInputModule, MdPaginatorModule } from '@angular/material';
 
 @NgModule({
     imports: [
-      MdInputModule,
-      MdPaginatorModule
+        MdInputModule,
+        MdPaginatorModule
+
     ],
     exports: [
-      MdInputModule,
-      MdPaginatorModule
+        MdInputModule,
+        MdPaginatorModule
+
     ]
 })
 

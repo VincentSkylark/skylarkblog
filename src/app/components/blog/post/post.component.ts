@@ -4,6 +4,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '../blog.service';
+import { AuthService } from '../../../common/auth/auth.service';
 
 @Component({
     selector: 'post',
@@ -14,9 +15,26 @@ import { BlogService } from '../blog.service';
 
 export class PostComponent implements OnInit {
     blogId: string;
-    blog: object = {tag:[]};
-    constructor(private route: ActivatedRoute, private blogService: BlogService) {
+    blog: object = { tag: [] };
+    comments = [];
+
+    constructor(private route: ActivatedRoute, private blogService: BlogService, private authService: AuthService) {
         this.blogId = route.snapshot.params['blogId'];
+    }
+
+    private getComment() {
+        this.blogService.getComment(this.blogId).subscribe((response) => {
+            let data = response.json();
+            this.comments = data[0].comments;
+        });
+    }
+
+    private addComment(comment: string) {
+        this.blogService.addComment(this.blogId, comment, this.authService.userName).subscribe((response) => {
+            this.getComment();
+        }, (err) => {
+            alert("Please login to leave a comment.");
+        });
     }
 
     ngOnInit() {
@@ -24,10 +42,8 @@ export class PostComponent implements OnInit {
             this.blog = response.json();
         });
 
-        // this.blogService.addComment(this.blogId, "Test comment", "bot x")
-        //     .subscribe((response) => {
-        //         console.log('add comment', response.json());
-        //     });
+        this.getComment();
+
     }
 
 }

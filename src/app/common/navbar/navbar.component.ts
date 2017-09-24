@@ -32,9 +32,8 @@ export class NavbarComponent implements AfterViewInit {
         let self = this;
         this.auth2.attachClickHandler(element, {},
             function (googleUser) {
-                self.authService.validToken(googleUser.getAuthResponse().id_token).subscribe((response) => {
-                  console.log(response.json());
-                });
+                let profile = googleUser.getBasicProfile();
+                self.authService.userName = profile.getName();
                 //success
             }, function (error) {
                 //error handling
@@ -44,5 +43,4 @@ export class NavbarComponent implements AfterViewInit {
     ngAfterViewInit() {
         this.googleLoginInit();
     }
-
 }
