@@ -4,6 +4,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
 import { AuthService } from '../../common/auth/auth.service';
+import { environment} from '../../../environments/environment';
 
 @Injectable()
 
@@ -14,43 +15,39 @@ export class BlogService {
         'Accept': 'application/json'
     });
 
-    private API_URL: string;
-
-    constructor(private http: Http, private authService: AuthService) {
-        this.API_URL = 'http://localhost:3000/api';
-    }
+    constructor(private http: Http) { }
 
     public getBlogSize(query?: object) {
-        let url: string = this.API_URL + '/blogsize';
+        let url: string = environment.API_URL + '/blogsize';
         return this.http.get(url, { body: query });
     }
 
     public getBlogs(pageNumber?: number) {
-        let url: string = this.API_URL + '/blog';
+        let url: string = environment.API_URL + '/blog';
         let params: URLSearchParams = new URLSearchParams();
         params.set('pageNumber', pageNumber ? pageNumber.toString() : '1');
         return this.http.get(url, { headers: this.headers, search: params });
     }
 
     public getPopularBlogs() {
-        let url: string = this.API_URL + '/blog/popular';
+        let url: string = environment.API_URL + '/blog/popular';
         return this.http.get(url, { headers: this.headers });
     }
 
     public getBlogById(blogId: string) {
-        let url: string = this.API_URL + '/blog/' + blogId;
+        let url: string = environment.API_URL + '/blog/' + blogId;
         let params: URLSearchParams = new URLSearchParams();
         params.set('blogId', blogId.toString());
         return this.http.get(url, { headers: this.headers, search: params });
     }
 
     public getComment(blogId: string) {
-        let url: string = this.API_URL + '/blog/comment/' + blogId;
+        let url: string = environment.API_URL + '/blog/comment/' + blogId;
         return this.http.get(url, { headers: this.headers });
     }
 
     public addComment(blogId: string, content: string, name = 'guest') {
-        let url: string = this.API_URL + '/blog/comment/' + blogId;
+        let url: string = environment.API_URL + '/blog/comment/' + blogId;
         let params: URLSearchParams = new URLSearchParams();
         params.set('blogId', blogId);
 

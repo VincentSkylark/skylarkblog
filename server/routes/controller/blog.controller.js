@@ -269,7 +269,7 @@ module.exports.getPastBlogs = function (req, res) {
             $gt: req.query.startDate,
             $lt: req.query.endDate
         }
-    }
+    };
 
     blogPost.find(query, { content: 0 })
         .sort({ created_date: -1 })
@@ -282,4 +282,4 @@ module.exports.getPastBlogs = function (req, res) {
             }
         });
 
-}
+};
