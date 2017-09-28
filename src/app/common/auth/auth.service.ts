@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 
@@ -9,16 +10,13 @@ export class AuthService {
     });
 
     private profile: any;
-    private API_URL: string;
 
-    constructor(private http: Http) {
-        this.API_URL = 'http://localhost:3000/api';
-    }
+    constructor(private http: Http) { }
 
     public userName: string = 'guest';
 
     public validToken(token: string) {
-        let url: string = this.API_URL + '/auth/valid';
+        let url: string = environment.API_URL + '/auth/valid';
         let params: URLSearchParams = new URLSearchParams();
         return this.http.post(url, { token: token }, { headers: this.headers })
     }
