@@ -266,7 +266,7 @@ module.exports.getPastBlogs = function (req, res) {
     const query = {
         isActive: true,
         created_date: {
-            $gt: req.query.startDate,
+            $gte: req.query.startDate,
             $lt: req.query.endDate
         }
     }

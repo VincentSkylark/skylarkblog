@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BlogService } from '../blog.service';
 
 @Component({
@@ -10,17 +11,18 @@ import { BlogService } from '../blog.service';
 export class SidenavComponent implements OnInit {
     private popularPosts = [];
     date = new Date();
-    dateList: Array<Date> = [];
+    dateList: Array<Object> = [];
 
-    constructor(private blogService: BlogService) { }
+    constructor(private blogService: BlogService, private router: Router) { }
 
     //generate data list of the past 6 months;
     private generateAchieveList() {
         const year = this.date.getFullYear();
         const month = this.date.getMonth();
         for (let i = 0; i < 6; i++) {
-            let date = new Date(year, month - i, 1);
-            this.dateList.push(date);
+            let startDate = new Date(year, month - i - 1, 1);
+            let endDate = new Date(year, month - i, 1);
+            this.dateList.push({startDate: startDate, endDate: endDate});
         }
     }
 

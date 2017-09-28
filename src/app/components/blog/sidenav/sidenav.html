@@ -1,20 +1,21 @@
 <div class="side-nav">
-  <h3>About The Host</h3>
-  <div>
-    <p>
+  <h2 class="sub-title">About The Host</h2>
+  <div class="list">
+    <p class="list-item">
       Vincent is a software developer by day and a tech enthusiast by night.
       <br /><a [routerLink]="['/aboutme']">More about me.</a>
     </p>
   </div>
 
-  <h3>Popular Posts</h3>
-  <div *ngFor="let post of popularPosts">
-    <a [routerLink]="['/blog/'+post._id]">{{post.title}}</a>
+  <h2 class="sub-title">Popular Posts</h2>
+  <div class="list" *ngFor="let post of popularPosts">
+    <a class="list-item" [routerLink]="['/blog/'+post._id]">{{post.title}}</a>
   </div>
 
-  <h3>Achieves</h3>
-  <div *ngFor="let date of dateList">
-    {{date | date: "MMM y"}}
+  <h2 class="sub-title">Achieves</h2>
+  <div class="list" *ngFor="let date of dateList">
+    <a class="list-item" [routerLink]="['/blog']" [queryParams]="{startDate: date.startDate, endDate: date.endDate}">
+      {{date.startDate | date: "MMMM y"}}
+    </a>
   </div>
-
 </div>

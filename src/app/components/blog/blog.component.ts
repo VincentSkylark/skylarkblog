@@ -2,6 +2,7 @@
  * Created by vhe on 8/9/2017.
  */
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PageEvent } from '@angular/material';
 import { BlogService } from './blog.service';
 
@@ -15,7 +16,7 @@ import { BlogService } from './blog.service';
 
 export class BlogComponent implements OnInit {
 
-    constructor(private blogService: BlogService) {
+    constructor(private blogService: BlogService, private route: ActivatedRoute, private router: Router) {
     }
 
     blogs: object;
@@ -38,9 +39,19 @@ export class BlogComponent implements OnInit {
             this.pageModel.length = response.type;
         });
 
-        this.blogService.getBlogs().subscribe((response) => {
-            this.blogs = response.json();
+        this.route.queryParams.subscribe((params) => {
+            if (params.startDate && params.endDate) {
+                this.blogService.getPastBlogs(params.startDate, params.endDate).subscribe((response) => {
+                    this.blogs = response.json();
+                });
+
+            } else {
+                this.blogService.getBlogs().subscribe((response) => {
+                    this.blogs = response.json();
+                });
+            }
         });
+        
     }
 
 }

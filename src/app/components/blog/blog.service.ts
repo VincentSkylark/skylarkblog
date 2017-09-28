@@ -37,6 +37,15 @@ export class BlogService {
         return this.http.get(url, { headers: this.headers });
     }
 
+    public getPastBlogs(startDate, endDate) {
+        let url: string = this.API_URL + '/blog/past';
+        let params: URLSearchParams = new URLSearchParams();
+        
+        params.set('startDate', startDate.toString());
+        params.set('endDate', endDate.toString());
+        return this.http.get(url, { headers: this.headers, search: params });
+    }
+
     public getBlogById(blogId: string) {
         let url: string = this.API_URL + '/blog/' + blogId;
         let params: URLSearchParams = new URLSearchParams();
@@ -54,6 +63,6 @@ export class BlogService {
         let params: URLSearchParams = new URLSearchParams();
         params.set('blogId', blogId);
 
-        return this.http.post(url, {name: name, content: content} ,{ headers: this.headers })
+        return this.http.post(url, { name: name, content: content }, { headers: this.headers })
     }
 }
