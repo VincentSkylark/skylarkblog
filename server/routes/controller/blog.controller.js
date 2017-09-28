@@ -4,8 +4,9 @@
 'use strict';
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const env = require('../../environment.js');
 
-mongoose.connect('mongodb://localhost:27017/blogPosts', { useMongoClient: true });
+mongoose.connect(env.mongodbUrl, { useMongoClient: true });
 
 // Schema for blog post
 let postSchema = new Schema({

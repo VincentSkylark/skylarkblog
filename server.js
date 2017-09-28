@@ -11,13 +11,15 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
+const env = require('./server/environment.js');
+
 app.use(cookieParser());
 app.use(bodyParser());
 
 //CORS for test purpose only!!
 //CORS middleware
 const allowCrossDomain = function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+    res.header('Access-Control-Allow-Origin', env.corsDomain);
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
 

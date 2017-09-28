@@ -35,7 +35,7 @@ export class BlogService {
     }
 
     public getPastBlogs(startDate, endDate) {
-        let url: string = this.API_URL + '/blog/past';
+        let url: string = environment.API_URL + '/blog/past';
         let params: URLSearchParams = new URLSearchParams();
         
         params.set('startDate', startDate.toString());
