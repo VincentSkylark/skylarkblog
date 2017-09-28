@@ -205,7 +205,7 @@ module.exports.getBlogs = function (req, res) {
     const pageSize = (req.query.pageSize <= 30 && req.query.pageSize >= 1) ? ~~req.query.pageSize : 15;
     const pageNumber = (req.query.pageNumber >= 1) ? ~~req.query.pageNumber : 1;
 
-    blogPost.find({ isActive: true })
+    blogPost.find({ isActive: true }, {content: 0})
         .sort({ created_date: -1 })
         .skip((pageNumber - 1) * pageSize)
         .limit(pageSize)
