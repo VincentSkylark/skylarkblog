@@ -10,5 +10,12 @@ import { Component } from '@angular/core';
 })
 
 export class PortfolioComponent {
+    projects = [
+        {
+            title: 'Skylark Blog',
+            link: '',
+            description:''
+        }
+    ];
 
 }

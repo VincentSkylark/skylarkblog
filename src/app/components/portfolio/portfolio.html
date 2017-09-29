@@ -1,3 +1,8 @@
-<h1>
-  This is Portfolio
-</h1>
+<div class="portfolio">
+  <div *ngFor="let project of projects">
+    <div class="project-card">
+      <h3 class="project-title"><a class="link" [src]="project.link">{{project.title}}</a></h3>
+      <div class="project-introduction">{{project.introduction}}</div>
+    </div>
+  </div>
+</div>
