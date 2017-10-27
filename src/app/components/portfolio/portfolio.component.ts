@@ -25,6 +25,11 @@ export class PortfolioComponent {
             title: 'Blog CMS',
             link: 'N/A',
             introduction: 'Content management system for mongodb.'
+        },
+        {
+            title: 'Five Card Draw',
+            link: 'https://github.com/VincentSkylark/FiveCardDraw',
+            introduction: 'Classic casino machine five card draw. Select the card you want to hold and click deal to switch the others.'
         }
     ];
 
