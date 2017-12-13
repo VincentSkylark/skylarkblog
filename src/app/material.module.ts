@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { MdInputModule, MdPaginatorModule } from '@angular/material';
+import { MatInputModule, MatPaginatorModule } from '@angular/material';
 
 @NgModule({
     imports: [
-        MdInputModule,
-        MdPaginatorModule
+      MatInputModule,
+      MatPaginatorModule
 
     ],
     exports: [
-        MdInputModule,
-        MdPaginatorModule
+      MatInputModule,
+      MatPaginatorModule
 
     ]
 })
