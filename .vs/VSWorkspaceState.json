@@ -4,13 +4,11 @@
     "\\server",
     "\\server\\routes",
     "\\server\\routes\\controller",
-    "\\src",
     "\\src\\app",
-    "\\src\\app\\common",
-    "\\src\\app\\components\\contact",
-    "\\src\\app\\components\\home",
-    "\\src\\app\\components\\portfolio"
+    "\\src\\app\\components",
+    "\\src\\app\\components\\blog",
+    "\\src\\app\\components\\blog\\blogCard"
   ],
-  "SelectedNode": "\\server\\environment.js",
+  "SelectedNode": "\\server.js",
   "PreviewInSolutionExplorer": false
 }

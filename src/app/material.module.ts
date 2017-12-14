@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { MatInputModule, MatPaginatorModule } from '@angular/material';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
     imports: [
