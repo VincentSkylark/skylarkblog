@@ -22,10 +22,11 @@ export class BlogService {
         return this.http.get(url, { body: query });
     }
 
-    public getBlogs(pageNumber?: number) {
+    public getBlogs(pageNumber?: number, pageSize?: number) {
         let url: string = environment.API_URL + '/blog';
         let params: URLSearchParams = new URLSearchParams();
         params.set('pageNumber', pageNumber ? pageNumber.toString() : '1');
+        params.set('pageSize', pageSize ? pageSize.toString() : '10');
         return this.http.get(url, { headers: this.headers, search: params });
     }
 

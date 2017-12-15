@@ -22,13 +22,13 @@ export class BlogComponent implements OnInit {
     blogs: object;
 
     pageModel = {
-        length: 15,
-        pageSize: 15
+        length: 10,
+        pageSize: 5
     };
 
     pageChange(evt) {
-        // pageIndex is 0 based, pageNumber for api is 1 based
-        this.blogService.getBlogs(evt.pageIndex + 1).subscribe((response) => {
+      // pageIndex is 0 based, pageNumber for api is 1 based
+      this.blogService.getBlogs(evt.pageIndex + 1,  this.pageModel.pageSize).subscribe((response) => {
             this.blogs = response.json();
         });
     }
@@ -36,7 +36,7 @@ export class BlogComponent implements OnInit {
 
     ngOnInit() {
         this.blogService.getBlogSize().subscribe((response) => {
-            this.pageModel.length = response.type;
+          this.pageModel.length = Number(response.json());
         });
 
         this.route.queryParams.subscribe((params) => {
@@ -46,7 +46,7 @@ export class BlogComponent implements OnInit {
                 });
 
             } else {
-                this.blogService.getBlogs().subscribe((response) => {
+              this.blogService.getBlogs(1, this.pageModel.pageSize).subscribe((response) => {
                     this.blogs = response.json();
                 });
             }

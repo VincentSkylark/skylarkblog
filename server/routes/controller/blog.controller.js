@@ -202,7 +202,7 @@ module.exports.getBlogs = function (req, res) {
     //   pageNumber: Number,
     // };
 
-    const pageSize = (req.query.pageSize <= 30 && req.query.pageSize >= 1) ? ~~req.query.pageSize : 15;
+    const pageSize = (req.query.pageSize <= 30 && req.query.pageSize >= 1) ? ~~req.query.pageSize : 10;
     const pageNumber = (req.query.pageNumber >= 1) ? ~~req.query.pageNumber : 1;
 
     blogPost.find({ isActive: true }, {content: 0})
@@ -238,7 +238,7 @@ module.exports.getPopularBlogs = function (req, res) {
     //   pageSize: Number,
     // };
 
-    const pageSize = (req.query.pageSize <= 30 && req.query.pageSize >= 1) ? ~~req.query.pageSize : 15;
+    const pageSize = (req.query.pageSize <= 30 && req.query.pageSize >= 1) ? ~~req.query.pageSize : 5;
 
     blogPost.find({ isActive: true }, { content: 0, imageUrl: 0, brief: 0 })
         .sort({ views: -1 })
